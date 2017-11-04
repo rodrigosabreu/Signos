@@ -68,7 +68,19 @@ class ViewController: UITableViewController {
         
     }
 
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //desmarcando a linha com efeito
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let alertaController = UIAlertController(title: "Significado do signo", message: significados[ indexPath.row ], preferredStyle: .actionSheet)
+        
+        let acaoConfirmar = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertaController.addAction(acaoConfirmar)
+        
+        present(alertaController, animated: true, completion: nil)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
